@@ -10,14 +10,14 @@ Ubuntu 18.04 LTS, OpenCV 3.2, Python2, sklearn
 
 - train
   - p
-    - <train positive images>
+    - `<train positive images>`
   - n
-    - <train negative images>
+    - `<train negative images>`
 - test
   - p
-    - <test positive images>
+    - `<test positive images>`
   - n
-    - <test negative images>
+    - `<test negative images>`
 
 また、本文中で三枚の画像を最終評価目標として設定しています。
 
