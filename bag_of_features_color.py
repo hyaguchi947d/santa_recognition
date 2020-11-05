@@ -32,10 +32,10 @@ def key_desc_from_file(imgfile):
             img_g, keypoints_g, descriptors_g,
             img_r, keypoints_r, descriptors_r)
     
-kd_train_p = map(key_desc_from_file, files_train_p)
-kd_train_n = map(key_desc_from_file, files_train_n)
-kd_test_p = map(key_desc_from_file, files_test_p)
-kd_test_n = map(key_desc_from_file, files_test_n)
+kd_train_p = list(map(key_desc_from_file, files_train_p))
+kd_train_n = list(map(key_desc_from_file, files_train_n))
+kd_test_p = list(map(key_desc_from_file, files_test_p))
+kd_test_n = list(map(key_desc_from_file, files_test_n))
 
 # create dictionary
 print('create dictionary...')
@@ -73,8 +73,8 @@ def extract_bof_desc(ikd):
     return np.array(result_b + result_g + result_r)
 
 print('convert training images to descriptors')
-bof_desc_p = map(extract_bof_desc, kd_train_p)
-bof_desc_n = map(extract_bof_desc, kd_train_n)
+bof_desc_p = list(map(extract_bof_desc, kd_train_p))
+bof_desc_n = list(map(extract_bof_desc, kd_train_n))
 
 print('create SVM')
 trains = bof_desc_p + bof_desc_n
@@ -97,8 +97,8 @@ print("[train] precision = %f" % train_precision)
 print("[train] recall = %f" % train_recall)
 
 # test
-bof_test_p = map(extract_bof_desc, kd_test_p)
-bof_test_n = map(extract_bof_desc, kd_test_n)
+bof_test_p = list(map(extract_bof_desc, kd_test_p))
+bof_test_n = list(map(extract_bof_desc, kd_test_n))
 
 result_test_p = clf.predict(bof_test_p).tolist()
 result_test_n = clf.predict(bof_test_n).tolist()
