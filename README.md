@@ -2,7 +2,7 @@
 
 ## 試した環境
 
-Ubuntu 18.04 LTS, OpenCV 3.2, Python2, sklearn
+Ubuntu 18.04 LTS, OpenCV 4.5, Python3.6, sklearn
 
 ## 準備
 
