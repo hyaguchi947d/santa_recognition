@@ -17,11 +17,11 @@ def color_hist_from_file(imgfile):
     n_hist_1d = hist_1d / np.linalg.norm(hist_1d)
     return n_hist_1d
     
-hist_train_p = map(color_hist_from_file, files_train_p)
-hist_train_n = map(color_hist_from_file, files_train_n)
+hist_train_p = list(map(color_hist_from_file, files_train_p))
+hist_train_n = list(map(color_hist_from_file, files_train_n))
 
-hist_test_p = map(color_hist_from_file, files_test_p)
-hist_test_n = map(color_hist_from_file, files_test_n)
+hist_test_p = list(map(color_hist_from_file, files_test_p))
+hist_test_n = list(map(color_hist_from_file, files_test_n))
 
 trains = hist_train_p + hist_train_n
 labels = [1] * len(hist_train_p) + [0] * len(hist_train_n)
